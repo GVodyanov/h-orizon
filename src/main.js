@@ -11,8 +11,15 @@ import router from './router'
 import useMainStore from './stores/mainStore.js'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { faFire, faSnowflake } from "@fortawesome/free-solid-svg-icons"
 
-const app = createApp(App)
+library.add(faSnowflake)
+library.add(faFire)
+
+const app = createApp(App).component('font-awesome-icon', FontAwesomeIcon)
+
 
 app.use(PrimeVue, {
   theme: {

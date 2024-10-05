@@ -4,7 +4,7 @@ import PButton from 'primevue/button'
 import MeterGroup from 'primevue/metergroup';
 import useMainStore from '@/stores/mainStore.js'
 import Divider from 'primevue/divider';
-
+import Chip from 'primevue/chip';
 import MapComponent from '@/components/MapComponent.vue'
 import { mapStores } from 'pinia'
 
@@ -18,6 +18,7 @@ export default {
     MeterGroup,
     Divider,
     MapComponent,
+    Chip,
   },
   computed: {
     ...mapStores(useMainStore)
@@ -28,10 +29,16 @@ export default {
     },
 
     formatClimate(climate) {
+      let color = 'lightgray'
+
+      if (climate.type === 'flood') color = 'lightblue'
+      if (climate.type === 'drought') color = 'coral'
+      if (climate.type === 'climate change') color = 'lightgreen'
+
       return [{
         label: climate.type.charAt(0).toUpperCase() + climate.type.slice(1),
-        value: climate.probability * 100,
-        color: 'lightblue'
+        value: climate.probability,
+        color: color,
       }]
     },
 
@@ -71,11 +78,14 @@ export default {
         </template>
 
         <template #subtitle>
+          <font-awesome-icon icon="fa-solid fa-fire" />
           <div class="subtitle-wrapper">
-            <div class="subtitle-container" v-if="field.vegetationArea">
-              <i style="font-size: 0.8rem" class="pi pi-map"></i>
-              <span>Vegetation: {{ field.vegetationArea }}m^2</span>
-            </div>
+            <Chip :label="`${field.area}m^2`" icon="pi pi-map"/>
+            <Chip>
+
+              {{ field.maxTemp }}°C
+            </Chip>
+            <Chip :label="`${field.minTemp}°C`" icon="fa-snowflake"/>
           </div>
         </template>
 
@@ -104,6 +114,7 @@ export default {
 .card-wrapper {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .p-card {
@@ -127,8 +138,10 @@ export default {
   gap: 1rem;
 }
 
-.subtitle-container i {
-  padding-right: 0.5rem
+.subtitle-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
 }
 
 h3 {

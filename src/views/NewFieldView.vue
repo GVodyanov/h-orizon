@@ -3,7 +3,6 @@ import PButton from 'primevue/button';
 import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
 import InputText from 'primevue/inputtext';
-import Checkbox from 'primevue/checkbox';
 import Divider from 'primevue/divider';
 import LocationPicker from '@/components/LocationPicker.vue'
 
@@ -15,8 +14,7 @@ export default {
     return {
       name: null,
       coords: {},
-      vegetation: false,
-      vegetationArea: null,
+      area: null,
       soilComposition: null,
     };
   },
@@ -25,7 +23,6 @@ export default {
     IconField,
     InputIcon,
     InputText,
-    Checkbox,
     Divider,
     LocationPicker,
   },
@@ -36,7 +33,7 @@ export default {
     async submit() {
       if (!this.name || !this.coords) return
 
-      await this.mainStore.addField(this.name, this.coords, this.vegetation, this.vegetationArea, this.soilComposition)
+      await this.mainStore.addField(this.name, this.coords, this.area, this.soilComposition)
 
       this.$router.replace('/')
     },
@@ -72,14 +69,9 @@ export default {
         <InputText v-model="coords.lng" placeholder="Field longitude" />
       </IconField>
 
-      <div class="flex align-items-center">
-        <Checkbox v-model="vegetation" inputId="vegetation" name="vegetation" :binary="true" />
-        <label for="ingredient1" class="ml-2"> Does your field have deep vegetation? </label>
-      </div>
-
-      <IconField v-if="vegetation">
+      <IconField>
         <InputIcon class="pi pi-map" />
-        <InputText v-model="vegetationArea" placeholder="Vegetation area (m^2)" />
+        <InputText v-model="area" placeholder="Field area (m^2)" />
       </IconField>
       <PButton @click="submit" label="Save" icon="pi pi-check" iconPos="left" />
     </div>

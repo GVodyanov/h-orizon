@@ -40,7 +40,7 @@ export default {
 </template>
 
 <style scoped>
-:deep(.leaflet-control-attribution) {
+:deep(.leaflet-control-attribution), :deep(.leaflet-control-container) {
   display: none !important;
 }
 </style>

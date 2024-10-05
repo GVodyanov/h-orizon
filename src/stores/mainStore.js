@@ -24,7 +24,7 @@ export default defineStore('main', {
       localStorage.setItem('fields', JSON.stringify(this.fields))
     },
 
-    async addField(name, fieldCoords, vegetation, vegetationArea, soilComposition) {
+    async addField(name, fieldCoords, area, soilComposition) {
       const fieldStats = await getFieldStats(fieldCoords)
 
       console.debug('Adding field with following fieldStats: ', fieldStats)
@@ -34,9 +34,10 @@ export default defineStore('main', {
         fieldCoords,
         fieldStats.climateModules,
         fieldStats.preferredPlants,
-        vegetation,
-        vegetationArea,
+        area,
         soilComposition,
+        fieldStats.maxTemp,
+        fieldStats.minTemp,
       )
       this.fields.push(field)
 
