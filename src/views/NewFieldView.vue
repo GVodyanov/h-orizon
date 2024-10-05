@@ -74,7 +74,7 @@ export default {
 
       <div class="flex align-items-center">
         <Checkbox v-model="vegetation" inputId="vegetation" name="vegetation" :binary="true" />
-        <label for="ingredient1" class="ml-2"> Does your field have vegetation? </label>
+        <label for="ingredient1" class="ml-2"> Does your field have deep vegetation? </label>
       </div>
 
       <IconField v-if="vegetation">
@@ -110,5 +110,9 @@ h2 {
 
 .p-divider {
   margin: 0 !important;
+}
+
+.p-iconfield, .p-inputtext {
+  width: 100% !important;
 }
 </style>
