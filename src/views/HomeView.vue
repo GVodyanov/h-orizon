@@ -81,11 +81,8 @@ export default {
           <font-awesome-icon icon="fa-solid fa-fire" />
           <div class="subtitle-wrapper">
             <Chip :label="`${field.area}m^2`" icon="pi pi-map"/>
-            <Chip>
-
-              {{ field.maxTemp }}°C
-            </Chip>
-            <Chip :label="`${field.minTemp}°C`" icon="fa-snowflake"/>
+            <Chip :label="`${field.maxTemp}°C`" icon="pi pi-plus"/>
+            <Chip :label="`${field.minTemp}°C`" icon="pi pi-minus"/>
           </div>
         </template>
 

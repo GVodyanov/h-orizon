@@ -1,16 +1,11 @@
 import getFloodStats from '@/services/getFloodStats.js'
 import getDroughtStats from '@/services/getDroughtStats.js'
 import getTemperatureStats from '@/services/getTemperatureStats.js'
+import plantIndexService from '@/services/plantIndexService.js'
 
 export default async function getFieldStats(fieldCoords) {
   let stats = {
     climateModules: [],
-    preferredPlants: [
-      {
-        name: "rice",
-        suggestionIndex: 0.9,
-      }
-    ]
   }
 
   const floodResults = await getFloodStats(fieldCoords)
@@ -39,6 +34,14 @@ export default async function getFieldStats(fieldCoords) {
 
   stats.maxTemp = temperatureResults.max
   stats.minTemp = temperatureResults.min
+
+  const preferredPlants = plantIndexService(
+    floodResults / 100,
+    droughtResults / 100,
+    temperatureResults.max - temperatureResults.min,
+  )
+
+  stats.preferredPlants = preferredPlants
 
   console.debug ('Field stats in getFieldStats:', stats)
 

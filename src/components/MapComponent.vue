@@ -43,4 +43,8 @@ export default {
 :deep(.leaflet-control-attribution), :deep(.leaflet-control-container) {
   display: none !important;
 }
+
+.leaflet-container {
+  border-radius: 12px 12px 0 0;
+}
 </style>

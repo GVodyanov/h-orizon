@@ -25,7 +25,7 @@ export default defineStore('main', {
     },
 
     async addField(name, fieldCoords, area, soilComposition) {
-      const fieldStats = await getFieldStats(fieldCoords)
+      const fieldStats = await getFieldStats(fieldCoords, area)
 
       console.debug('Adding field with following fieldStats: ', fieldStats)
 
