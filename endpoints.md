@@ -10,7 +10,7 @@ REQUEST GET
     "area" : float,
     }
   ],
-  "soil_composition": list
+  "soilComposition": String
 }
 ```
 
