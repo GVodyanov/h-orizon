@@ -11,17 +11,23 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@primevue/themes": "^4.0.7",
     "pinia": "^2.1.7",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.0.7",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
     "@vitejs/plugin-vue": "^5.0.5",
+    "@vue-leaflet/vue-leaflet": "^0.10.1",
     "@vue/eslint-config-prettier": "^9.0.0",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
+    "leaflet": "^1.9.4",
     "prettier": "^3.2.5",
+    "sass-embedded": "^1.79.4",
     "vite": "^5.3.1",
     "vite-plugin-vue-devtools": "^7.3.1"
   }
