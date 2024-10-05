@@ -5,11 +5,11 @@ REQUEST GET
 {
   "fieldCoords": String,
   "vegetaion": [
-  {
+    {
     "presence" : bool,
     "area" : float,
-  }
-  ]
+    }
+  ],
   "soil_composition": list
 }
 ```
