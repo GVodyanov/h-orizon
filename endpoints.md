@@ -4,7 +4,7 @@ REQUEST GET
 ```json
 {
   "fieldCoords": String,
-  "vegetaion": [
+  "vegetation": [
     {
     "presence" : bool,
     "area" : float,
