@@ -12,7 +12,7 @@ RESPONSE
 {
   "climateModules": [
     {
-      "type": Enum["Flood", "Drought", "Rain"],
+      "type": Enum["flood", "drought", "rain"],
       "probability": float,
       "preferredPlants": [
         {
