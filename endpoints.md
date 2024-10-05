@@ -14,12 +14,12 @@ RESPONSE
     {
       "type": Enum["flood", "drought", "rain"],
       "probability": float,
-      "preferredPlants": [
-        {
-          "name": string,
-          "suggestionIndex": float, # From 0-1
-        },
-      ],
+    },
+  ],
+  "preferredPlants": [
+    {
+      "name": string,
+      "suggestionIndex": float, # From 0-1
     },
   ],
 },
