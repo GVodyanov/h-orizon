@@ -30,6 +30,15 @@ export default {
     RouterLink,
     Menubar,
     PButton,
+  },
+  computed: {
+    checkBrowserLightDark() {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return '/logo.png'
+      } else {
+        return '/logo_dark.png'
+      }
+    }
   }
 };
 
@@ -38,7 +47,7 @@ export default {
 <template>
   <Menubar :model="items">
     <template #start>
-      <img src="/logo.png" alt="Logo" height="35">
+      <img :src="checkBrowserLightDark" alt="Logo" height="35">
     </template>
     <template #item="{ item, props }">
       <RouterLink v-slot="{ href, navigate }" :to="item.route" custom>
