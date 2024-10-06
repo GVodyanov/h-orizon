@@ -32,5 +32,5 @@ export default async function getTemperatureStats(coords) {
   const lastYearList = response.data.daily.temperature_2m_mean.slice(startPointer, endPointer)
 
   console.debug('Temperature stats:', (regression.m / 2) * 1000000, Math.min(...lastYearList), Math.max(...lastYearList))
-  return {'regression': (regression.m) * 1000000, 'min': Math.min(...lastYearList), 'max': Math.max(...lastYearList)}
+  return {'regression': (regression.m * 0.75) * 1000000, 'min': Math.min(...lastYearList), 'max': Math.max(...lastYearList)}
 }

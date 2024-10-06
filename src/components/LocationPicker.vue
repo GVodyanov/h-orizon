@@ -35,7 +35,7 @@ export default {
 </script>
 
 <template>
-  <div style="height:20rem; width: 30rem;">
+  <div class="location-wrapper" style="height:20rem; width: 30rem;">
     <LMap @click="onMapClick"
         ref="map"
         style="height: 20rem"
@@ -63,4 +63,12 @@ export default {
 .leaflet-container {
   border-radius: 12px;
 }
+
+@media (max-width: 700px) {
+  .leaflet-container, .location-wrapper {
+    height: 20rem !important;
+    width: 15rem !important;
+  }
+}
+
 </style>

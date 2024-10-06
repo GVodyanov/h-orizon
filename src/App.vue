@@ -1,6 +1,7 @@
 <script>
 import { RouterView, RouterLink } from 'vue-router'
 import Menubar from 'primevue/menubar';
+import PButton from 'primevue/button';
 
 export default {
   data() {
@@ -12,9 +13,9 @@ export default {
           route: '/'
         },
         {
-          label: 'New',
-          icon: 'pi pi-file-plus',
-          route: '/new'
+          label: 'Share your experiences',
+          icon: 'pi pi-comments',
+          route: '/'
         },
       ]
     };
@@ -23,6 +24,7 @@ export default {
     RouterView,
     RouterLink,
     Menubar,
+    PButton,
   }
 };
 
@@ -36,6 +38,11 @@ export default {
           <span :class="item.icon" />
           <span class="ml-2">{{ item.label }}</span>
         </a>
+      </RouterLink>
+    </template>
+    <template #end>
+      <RouterLink to="/new">
+        <PButton icon="pi pi-file-plus" label="New"></PButton>
       </RouterLink>
     </template>
   </Menubar>

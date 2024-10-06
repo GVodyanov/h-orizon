@@ -81,8 +81,14 @@ export default {
           <font-awesome-icon icon="fa-solid fa-fire" />
           <div class="subtitle-wrapper">
             <Chip :label="`${field.area}m^2`" icon="pi pi-map"/>
-            <Chip :label="`${field.maxTemp}°C`" icon="pi pi-plus"/>
-            <Chip :label="`${field.minTemp}°C`" icon="pi pi-minus"/>
+            <Chip>
+              <span class="material-symbols-outlined">local_fire_department</span>
+              {{ field.maxTemp }}°C
+            </Chip>
+            <Chip>
+              <span class="material-symbols-outlined">ac_unit</span>
+              {{ field.minTemp }}°C
+            </Chip>
           </div>
         </template>
 
@@ -91,15 +97,14 @@ export default {
           <div class="stat-wrapper">
             <span><i style="font-size: 0.8rem" class="pi pi-sun" />   Expected climate: </span>
             <div class="stat-container" v-for="climate in field.climateModules">
-              <MeterGroup :value="formatClimate(climate)"></MeterGroup>
+              <MeterGroup labelPosition="start" :value="formatClimate(climate)"></MeterGroup>
             </div>
           </div>
           <Divider />
-          <div class="stat-wrapper">
-            <span><i style="font-size: 0.8rem" class="pi pi-wave-pulse" />   Suggested crops: </span>
-            <div class="stat-container" v-for="plant in field.preferredPlants">
-              <MeterGroup :value="formatPlants(plant)"></MeterGroup>
-            </div>
+          <span><i style="font-size: 0.8rem" class="pi pi-wave-pulse" />   Suggested crops: </span>
+          <div class="chip-wrapper">
+            <Chip v-for="plant in field.preferredPlants" :label="plant"/>
+            <Chip v-if="!field.preferredPlants.length" label="Non suitable area" />
           </div>
         </template>
       </Card>
@@ -115,7 +120,7 @@ export default {
 }
 
 .p-card {
-  min-width: calc(50% - 0.5rem);
+  width: calc(50% - 0.5rem);
 }
 
 .title-wrapper {
@@ -127,6 +132,9 @@ export default {
   align-items: center;
   color: var(--p-primary-color);
   font-weight: bold;
+  text-overflow: ellipsis;
+  overflow-x: clip;
+  white-space: nowrap;
 }
 
 .stat-wrapper {
@@ -139,12 +147,22 @@ export default {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 h3 {
   padding-top: 3rem;
   text-align: center;
   font-weight: normal;
+  line-height: 2;
+}
+
+.chip-wrapper {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 700px) {
@@ -154,6 +172,11 @@ h3 {
 
   .p-card {
     min-width: 100%;
+  }
+
+  :deep(.p-card-header) {
+    display: flex;
+    justify-content: center;
   }
 }
 
