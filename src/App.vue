@@ -1,7 +1,8 @@
 <script>
 import { RouterView, RouterLink } from 'vue-router'
-import Menubar from 'primevue/menubar';
-import PButton from 'primevue/button';
+import Menubar from 'primevue/menubar'
+import PButton from 'primevue/button'
+import Chip from  'primevue/chip'
 
 export default {
   data() {
@@ -30,6 +31,7 @@ export default {
     RouterLink,
     Menubar,
     PButton,
+    Chip,
   },
   computed: {
     checkBrowserLightDark() {
@@ -64,8 +66,17 @@ export default {
     </template>
   </Menubar>
   <RouterView />
+  <a class="chip-wrapper" target="_blank" href="https://docs.google.com/document/d/1iXgAsjnM8BrwbnhjNNXt5IsYu-Sg2T0p/edit?usp=sharing&ouid=107968380404346585295&rtpof=true&sd=true">
+    <Chip icon="pi pi-link" label="Find out more" />
+  </a>
 </template>
 
 <style scoped>
-
+.chip-wrapper {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 1rem 1rem;
+  opacity: 0.3;
+}
 </style>
