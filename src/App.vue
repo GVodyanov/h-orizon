@@ -17,6 +17,11 @@ export default {
           icon: 'pi pi-comments',
           route: '/'
         },
+        {
+          label: 'AI analyzer',
+          icon: 'pi pi-sparkles',
+          route: '/'
+        },
       ]
     };
   },
@@ -32,6 +37,9 @@ export default {
 
 <template>
   <Menubar :model="items">
+    <template #start>
+      <img src="/logo.png" alt="Logo" height="35">
+    </template>
     <template #item="{ item, props }">
       <RouterLink v-slot="{ href, navigate }" :to="item.route" custom>
         <a v-ripple :href="href" v-bind="props.action" @click="navigate">

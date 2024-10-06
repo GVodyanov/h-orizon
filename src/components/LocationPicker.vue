@@ -69,6 +69,10 @@ export default {
     height: 20rem !important;
     width: 15rem !important;
   }
+
+  .location-wrapper {
+    align-self: center;
+  }
 }
 
 </style>

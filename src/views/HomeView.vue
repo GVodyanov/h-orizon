@@ -31,9 +31,9 @@ export default {
     formatClimate(climate) {
       let color = 'lightgray'
 
-      if (climate.type === 'flood') color = 'lightblue'
-      if (climate.type === 'drought') color = 'coral'
-      if (climate.type === 'climate change') color = 'lightgreen'
+      if (climate.type === 'flood') color = '#016a8a'
+      if (climate.type === 'drought') color = '#9e6240'
+      if (climate.type === 'climate change') color = '#bbbbbb'
 
       return [{
         label: climate.type.charAt(0).toUpperCase() + climate.type.slice(1),
