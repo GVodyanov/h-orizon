@@ -1,15 +1,5 @@
 @import 'primeicons/primeicons.css';
 
-:root {
-  font-family: Inter, sans-serif;
-  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
-  --p-button-primary-background: #9ECE9A !important;
-  --p-button-primary-border-color: #9ECE9A !important;
-  --p-primary-color: #9ECE9A !important;
-  --p-button-primary-active-background: #9ECE9A !important;
-  --p-button-primary-active-border-color: #9ECE9A !important;
-}
-
 #app {
   max-width: 1280px;
   margin: 0 auto;
