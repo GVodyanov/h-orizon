@@ -14,14 +14,9 @@ export default {
           route: '/'
         },
         {
-          label: 'Share your experiences',
-          icon: 'pi pi-comments',
-          route: '/'
-        },
-        {
-          label: 'AI analyzer',
-          icon: 'pi pi-sparkles',
-          route: '/'
+          label: 'Source code',
+          icon: 'pi pi-github',
+          url: 'https://github.com/GVodyanov/h-orizon'
         },
       ]
     };
@@ -52,12 +47,16 @@ export default {
       <img :src="checkBrowserLightDark" alt="Logo" height="35">
     </template>
     <template #item="{ item, props }">
-      <RouterLink v-slot="{ href, navigate }" :to="item.route" custom>
+      <RouterLink v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
         <a v-ripple :href="href" v-bind="props.action" @click="navigate">
           <span :class="item.icon" />
           <span class="ml-2">{{ item.label }}</span>
         </a>
       </RouterLink>
+      <a v-else v-ripple :href="item.url" target="_blank" v-bind="props.action">
+          <span :class="item.icon" />
+          <span class="ml-2">{{ item.label }}</span>
+      </a>
     </template>
     <template #end>
       <RouterLink to="/new">
