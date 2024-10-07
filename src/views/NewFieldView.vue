@@ -51,7 +51,6 @@ export default {
   <div class="new-wrapper">
     <div class="form-wrapper">
       <h2>Add a new field</h2>
-      <em>Please don't use the H-farm Wifi, the API has reached the daily limit on that IP</em>
       <Divider />
       <LocationPicker @setCoords="updateCoordsFromMap"/>
 
