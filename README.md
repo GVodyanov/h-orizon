@@ -1,14 +1,7 @@
-# farmer-front-end
+# H-orizon
 
-This template should help get you started developing with Vue 3 in Vite.
+H-orizon's team submission for [Nasa Space Apps Challenge 2024](https://www.spaceappschallenge.org/nasa-space-apps-2024/), Venice (H-farm) local event. The project analyzes extreme weather data and suggests crops for farmers to plant on their fields. [Find out more](https://docs.google.com/document/d/1iXgAsjnM8BrwbnhjNNXt5IsYu-Sg2T0p/edit?usp=sharing&ouid=107968380404346585295&rtpof=true&sd=true)
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
